@@ -1,0 +1,71 @@
+import time
+import random
+name1=input("Enter a player1 name:")
+name2=input("Enter a player2 name:")
+
+print("Hello {} and {}".format(name1,name2))
+time.sleep(2)
+print("comp has fixed five interger in mind")
+time.sleep(2)
+print("You both have 3 chances to guess the number")
+nums=[]
+while len (nums) !=5:
+    d=random.randint(1,10)
+    if (d in nums):
+        continue
+    else:
+        nums.append(d)
+player1=[]
+player2=[]
+s1=0
+s2=0
+for i in range(3):
+    print("{} Enter your guess:".format(name1))
+    ans=int(input())
+    if(ans not in player1 or ans not in player2 ):
+        while ans in player1 or ans in player2:
+            ans=int(input("You have already guessed this number, please enter a new number: "))
+        player1.append(ans)
+        if(ans in nums):
+            print("You guessed it right")
+            s1= s1+1
+        else:
+            print("Your guess is worng")
+    else:
+        print("You have already guessed this number")
+    print("{} Enter your guess:".format(name2))
+    ans1=int(input())
+    if(ans1 not in player1 or ans not in player2):
+        while ans1 in player1 or ans1 in player2:
+        ans1=int(input("You have already guessed this number, please enter a new number: "))  
+        player2.append(ans1)
+        if(ans1 in nums):
+            print("You guessed it right")
+            s2 = s2 + 1
+        else:
+            print("Your guess is worng")
+    else:
+        print("You have already guessed this number")  
+time.sleep(2)
+print("----------------------------------------")
+print("summary of the Game")
+print("comp has",nums)
+print("{} pridicted {}".format(name1,player1))
+print("{} score is {}" .format(name1,s1))
+print("{} pridicted {}".format(name1,player1))
+print("{} score is {}" .format(name1,s1))
+
+if(s1>s2):
+    print("{} player 1 is the winner".format(name1))
+elif(s2>s1):
+    print("{} player 2 is the winner".format(name2))
+else:
+    print("It is an Draw")
+
+
+    
+    
+        
+            
+
+
